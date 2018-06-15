@@ -22,5 +22,6 @@ urlpatterns = [
     # url(r'^login/$', views.user_login, name='user_login'),# 自定义登录
     # url(r'^login/$', auth_views.login, name='user_login'), # django内置登录
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='user_login'),
+
     url(r'^logout/$', auth_views.logout, {'template_name': 'blog/index.html'}, name='logout')
 ]

@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from blog import views
+
 urlpatterns = [
-    url(r'^index/$',views.index,name='index'),
-    url(r'^list/$',views.post_list,name='list'),
-    url(r'^detail/(?P<pid>\d+)/$',views.detail,name='detail')
+    url(r'^index/$', views.index, name='index'),
+    url(r'^list/$', views.post_list, name='list'),
+    url(r'^detail/(?P<pid>\d+)/$', views.detail, name='detail'),
+    url(r'^comment/(?P<pid>\d+)/$', views.comment, name='comment'),
 ]

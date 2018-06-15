@@ -7,5 +7,22 @@
 <body>
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
+{% if user.is_authenticated %}
+
+<form action="{% url 'blog:comment' post.id %}" method="post">
+    {% csrf_token %}
+    <h3>评论区</h3>
+    <p>评论内容：</p><textarea name="content" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="提交评论">
+</form>
+    {% else %}
+    <a href="{% url 'account:user_login' %}">登录即可添加评论</a>
+{% endif %}
+
+{% for comment in comment_list %}评论人:
+    <p>{{ comment.user.username }}</p><br>
+    <p>{{ comment.content }}</p>
+{% endfor %}
+
 </body>
 </html>
